@@ -1,6 +1,7 @@
 import type { AuthResponse, HistoryItem, ReviewResult } from '../types';
 
-const API_BASE = '/api';
+/** Production: set VITE_API_URL to your deployed backend (e.g. https://api.example.com/api). Dev: unset to use Vite proxy. */
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 const getAuthHeaders = (): HeadersInit => {
   const token = localStorage.getItem('token');
